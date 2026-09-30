@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration & Result Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">Student Portal</div>
+    <nav>
+      <a href="#registration">Registration</a>
+      <a href="#results">Results</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="tag">HTML5 + CSS3 Mini Project</p>
+        <h1>Student Registration & Result Portal</h1>
+        <p>Register student details, enter examination marks, and view the result in a clear structured format.</p>
+      </div>
+    </section>
+
+    <section id="registration" class="card">
+      <div class="section-heading">
+        <h2>Student Registration</h2>
+        <p>Enter all required student information.</p>
+      </div>
+
+      <form id="studentForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required
+                   pattern="[A-Za-z ]{3,50}" title="Enter 3-50 letters and spaces only"
+                   placeholder="Enter full name">
+          </div>
+
+          <div class="field">
+            <label for="roll">Roll Number</label>
+            <input id="roll" name="roll" type="text" required
+                   pattern="[A-Za-z0-9-]{2,20}" title="Use letters, numbers or hyphens"
+                   placeholder="e.g. 24AIDS001">
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="student@example.com">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" required
+                   pattern="[0-9]{10}" title="Enter exactly 10 digits"
+                   placeholder="10-digit mobile number">
+          </div>
+
+          <div class="field">
+            <label for="dob">Date of Birth</label>
+            <input id="dob" name="dob" type="date" required>
+          </div>
+
+          <div class="field">
+            <label for="course">Course</label>
+            <select id="course" name="course" required>
+              <option value="">Select a course</option>
+              <option>Artificial Intelligence & Data Science</option>
+              <option>Computer Science Engineering</option>
+              <option>Information Technology</option>
+              <option>Electronics & Communication Engineering</option>
+              <option>Mechanical Engineering</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="marks-title">
+          <h3>Examination Marks</h3>
+          <p>Enter marks from 0 to 100.</p>
+        </div>
+
+        <div class="marks-grid">
+          <div class="field">
+            <label for="htmlMark">HTML5</label>
+            <input id="htmlMark" name="htmlMark" type="number" min="0" max="100" required placeholder="0-100">
+          </div>
+          <div class="field">
+            <label for="cssMark">CSS3</label>
+            <input id="cssMark" name="cssMark" type="number" min="0" max="100" required placeholder="0-100">
+          </div>
+          <div class="field">
+            <label for="jsMark">JavaScript</label>
+            <input id="jsMark" name="jsMark" type="number" min="0" max="100" required placeholder="0-100">
+          </div>
+          <div class="field">
+            <label for="dbMark">Database</label>
+            <input id="dbMark" name="dbMark" type="number" min="0" max="100" required placeholder="0-100">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="primary">Register & View Result</button>
+          <button type="reset" class="secondary" id="resetBtn">Clear Form</button>
+        </div>
+      </form>
+      <div id="message" class="message" role="alert"></div>
+    </section>
+
+    <section id="results" class="card result-card hidden">
+      <div class="section-heading">
+        <h2>Student Result</h2>
+        <p>Registered student information and examination performance.</p>
+      </div>
+
+      <div class="details-grid">
+        <div><span>Name</span><strong id="outName">-</strong></div>
+        <div><span>Roll Number</span><strong id="outRoll">-</strong></div>
+        <div><span>Email</span><strong id="outEmail">-</strong></div>
+        <div><span>Phone</span><strong id="outPhone">-</strong></div>
+        <div><span>Date of Birth</span><strong id="outDob">-</strong></div>
+        <div><span>Course</span><strong id="outCourse">-</strong></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Subject</th><th>Marks</th><th>Status</th></tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th><th id="outTotal">0 / 400</th><th id="outPercentage">0%</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary"><span>Percentage</span><strong id="summaryPercentage">0%</strong></div>
+        <div class="summary"><span>Grade</span><strong id="summaryGrade">-</strong></div>
+        <div class="summary"><span>Overall Result</span><strong id="summaryResult">-</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Student Registration & Result Portal • Mini Project</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
